@@ -1,0 +1,97 @@
+{
+    "logged": {
+        "customer": { 
+            "isRegistered": true,
+            "title": "Mr.",
+            "titleCode": "mr",
+            "firstName": "Thomas",
+            "lastName": "Fronter",
+            "email": "loggedusertest@vuestorefront.com",
+            "password": "P@ssw0rd123",
+            "address": {
+                "shipping": {
+                    "streetName": "1 VueStorefront Rd.",
+                    "apartment": "3",
+                    "city": "Saint Helier",
+                    "country": "Jersey",
+                    "zipcode": "45678",
+                    "phone": "123456789"
+                },
+                "billing": {
+                    "streetName": "React Street",
+                    "apartment": "402",
+                    "city": "Saint Saviour",
+                    "country": "Jersey",
+                    "zipcode": "12345",
+                    "phone": "123456789"
+                }
+            },
+            "card": {
+                "type": "Visa",
+                "holder": "Thomas Fronter",
+                "number": "4111111111111111",
+                "expirationMonth": "1",
+                "expirationYear": "2028",
+                "cvv": "123"
+            }
+        },
+        "product": {
+            "sku": "300036394",
+            "number": 1,
+            "name": "Sneakers Vans Old Skool black/white 8.0",
+            "currency": "£",
+            "price": 59.46,
+            "category": {
+                "number": 0,
+                "name": "collections"
+            }
+        }
+    },
+    "guest": {
+        "customer": {
+            "isRegistered": false,
+            "title": "Mr.",
+            "titleCode": "mr",
+            "email": "johndoe@gmail.com",
+            "firstName": "John",
+            "lastName": "Doe",
+            "address": {
+              "shipping": {
+                "streetName": "1 VueStorefront Rd.",
+                "apartment": "23",
+                "city": "London",
+                "country": "United Kingdom",
+                "zipcode": "45678",
+                "phone": "123456789"
+              },
+              "billing": {
+                "streetName": "Baker Street",
+                "apartment": "2137",
+                "city": "Birmingham",
+                "country": "United Kingdom",
+                "zipcode": "12345",
+                "phone": "123456789"
+              }
+            },
+            "card": {
+                "type": "Visa",
+                "holder": "John Doe",
+                "number": "4111111111111111",
+                "expirationMonth": "1",
+                "expirationYear": "2028",
+                "cvv": "123"
+            }
+          },
+        "product": {
+            "sku": "300046038",
+            "number": 0,
+            "name": "T-Shirt Men Playboard Flower SS black S",
+            "currency": "£",
+            "price": 26.68,
+            "category": {
+                "number": 0,
+                "name": "collections"
+            }
+        }
+    } 
+}

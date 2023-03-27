@@ -1,0 +1,10 @@
+/* Optionally hide SfTabs title */
+@mixin sf-tab--orphan {
+  ::v-deep .sf-tabs__title {
+    @include for-mobile {
+      --tabs-title-display: none;
+      --tabs-content-padding: 0;
+      --tabs-conent-border-width: 0;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+name: Run E2E tests 
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+
+jobs:
+  prepare_dependencies:
+    name: Prepare dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting (sonar cloud)
+          fetch-depth: 0
+
+      - uses: ./.github/actions/install-dependencies
+        with:
+          NPM_EMAIL: ${{ secrets.NPM_EMAIL }}
+          NPM_USER: ${{ secrets.NPM_USER }}
+          NPM_PASS: ${{ secrets.NPM_PASS }}
+
+  test:
+    name: Run e2e tests
+    needs: prepare_dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - uses: ./.github/actions/install-dependencies
+        with:
+          NPM_EMAIL: ${{ secrets.NPM_EMAIL }}
+          NPM_USER: ${{ secrets.NPM_USER }}
+          NPM_PASS: ${{ secrets.NPM_PASS }}
+
+      - name: Run e2e tests
+        uses: cypress-io/github-action@v3
+        with:
+          command: yarn run e2e:run:demo:hl
+          browser: Chrome
+          headless: true
