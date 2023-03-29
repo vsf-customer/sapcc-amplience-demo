@@ -17,3 +17,5 @@ export enum IMAGE_TAGS {
   IMAGE = 'img',
   NUXT_IMAGE = 'nuxt-img'
 }
+
+export const AMPLIENCE_PREVIEW_COOKIE = 'vsf-amplience-preview';

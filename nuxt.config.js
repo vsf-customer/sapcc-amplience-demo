@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import theme from './themeConfig';
 
 export default {
+  components: ['~/components/cms/page/', '~/components/cms/layout/'],
   server: {
     port: process.env.PORT || 3000,
     host: '0.0.0.0'
@@ -43,7 +44,8 @@ export default {
   loading: { color: '#fff' },
   plugins: [
     { src: '~/plugins/image-helpers.ts' },
-    { src: '~/plugins/notifications', mode: 'client' }
+    { src: '~/plugins/notifications', mode: 'client' },
+    { src: '~/plugins/amplience-preview.js'}
   ],
   serverMiddleware: [
     {
@@ -68,11 +70,13 @@ export default {
         useRawSource: {
           dev: [
             '@vsf-enterprise/sapcc',
-            '@vue-storefront/core'
+            '@vue-storefront/core',
+            '@vsf-enterprise/amplience'
           ],
           prod: [
             '@vsf-enterprise/sapcc',
-            '@vue-storefront/core'
+            '@vue-storefront/core',
+            '@vsf-enterprise/amplience'
           ]
         }
       }
@@ -97,6 +101,7 @@ export default {
         }
       }
     ],
+    '@vsf-enterprise/amplience/nuxt',
     '@nuxtjs/i18n',
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',

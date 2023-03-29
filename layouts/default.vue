@@ -1,5 +1,6 @@
 <template>
   <div>
+    <RenderContent v-if="styleGuide.length" :content="styleGuide" />
     <LazyHydrate when-visible>
       <TopBar class="desktop-only" />
     </LazyHydrate>
@@ -42,6 +43,7 @@ import { useAppState } from '~/composables';
 import { onMounted } from '@nuxtjs/composition-api';
 import { onSSR } from '@vue-storefront/core';
 import { useStore } from '@vsf-enterprise/sapcc';
+import useCmsLayout from '~/composables/useCmsLayout';
 
 export default {
   name: 'DefaultLayout',
@@ -64,15 +66,22 @@ export default {
   setup() {
     const { isLogout, loadInitialAppState } = useAppState();
     const { load: loadStore } = useStore();
+    const { getLayout, styleGuide } = useCmsLayout();
 
     onSSR(async () => {
       await loadStore();
+      await Promise.all([
+        getLayout()
+      ]);
     });
 
     onMounted(async () => {
       if (!isLogout.value) await loadInitialAppState();
     });
 
+    return {
+      styleGuide
+    };
   },
 
   head () {

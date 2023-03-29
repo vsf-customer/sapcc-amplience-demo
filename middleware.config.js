@@ -32,6 +32,13 @@ module.exports = {
         },
         multistore
       }
+    },
+    ampl: {
+      location: '@vsf-enterprise/amplience/server',
+      configuration: {
+        url: 'https://b0fzckkn1nt91a6pjbsom8pz5.staging.bigcontent.io',
+        filterApiUrl: 'https://egodemo.cdn.content.amplience.net'
+      }
     }
   }
 };

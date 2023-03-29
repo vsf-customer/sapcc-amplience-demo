@@ -12,6 +12,7 @@
     "@nuxtjs/composition-api": "0.31",
     "@vue-storefront/multistore": "^1.0.0",
     "@vsf-enterprise/sapcc": "2.0.0-c.0",
+    "@vsf-enterprise/amplience": "^0.3.3",
     "@vue-storefront/middleware": "^2.7.5",
     "dotenv": "^9.0.2",
     "node-cache": "^5.1.2"

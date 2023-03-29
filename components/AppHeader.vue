@@ -6,19 +6,10 @@
       :isNavVisible="isMobileMenuOpen"
     >
       <template #logo>
-        <nuxt-link :to="localePath('/')" class="sf-header__logo">
-          <SfImage
-            src="/icons/logo.svg"
-            alt="Vue Storefront Next"
-            class="sf-header__logo-image"
-            :width="34"
-            :height="34"
-            :image-tag="$globalImgTag"
-          />
-        </nuxt-link>
+        <Logo />
       </template>
       <template #navigation>
-        <HeaderNavigation :categories="categories" />
+        <CmsHeaderNavigation />
       </template>
       <template #aside>
         <div class="selector-container smartphone-only">
@@ -122,6 +113,8 @@ import { clickOutside } from '@storefront-ui/vue/src/utilities/directives/click-
 import debounce from 'lodash.debounce';
 import CurrencySelector from './CurrencySelector';
 import HeaderNavigation from '~/components/HeaderNavigation';
+import Logo from './Logo.vue';
+import CmsHeaderNavigation from './CmsHeaderNavigation.vue';
 
 export default {
   components: {
@@ -137,7 +130,9 @@ export default {
     SfOverlay,
     SfMenuItem,
     SfModal,
-    HeaderNavigation
+    HeaderNavigation,
+    Logo,
+    CmsHeaderNavigation
   },
   directives: { clickOutside },
   setup() {

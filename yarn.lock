@@ -2740,6 +2740,16 @@
     "@typescript-eslint/types" "5.53.0"
     eslint-visitor-keys "^3.3.0"
 
+"@vsf-enterprise/amplience@^0.3.3":
+  version "0.3.3"
+  resolved "https://registrynpm.storefrontcloud.io/@vsf-enterprise%2famplience/-/amplience-0.3.3.tgz#16c38bf2a3565abac3e5a3f8b75b1fc72e47668d"
+  integrity sha512-ZruDaOSyXdjDS2z+Ee8nDrdgcyXnEmuopvIst2aanxrTrkfCXVpsbSCq3D9qV18gTqLUfCWRoQND31PWMCfV8Q==
+  dependencies:
+    "@nuxtjs/composition-api" "^0.29.3"
+    "@vue-storefront/core" "^2.7.5"
+    axios "^0.21.1"
+    rollup "^2.50.3"
+
 "@vsf-enterprise/sap-commerce-webservices-sdk@2.0.0-c.0":
   version "2.0.0-c.0"
   resolved "https://registrynpm.storefrontcloud.io/@vsf-enterprise%2fsap-commerce-webservices-sdk/-/sap-commerce-webservices-sdk-2.0.0-c.0.tgz#5c1565d4a894e993fab98afcab01c7d4ceb0967d"
@@ -12261,6 +12271,13 @@ robots-parser@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/robots-parser/-/robots-parser-3.0.1.tgz#3d8a3cdfa8ac240cbb062a4bd16fcc0e0fb9ed23"
   integrity sha512-s+pyvQeIKIZ0dx5iJiQk1tPLJAWln39+MI5jtM8wnyws+G5azk+dMnMX0qfbqNetKKNgcWWOdi0sfm+FbQbgdQ==
+
+rollup@^2.50.3:
+  version "2.79.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.79.1.tgz#bedee8faef7c9f93a2647ac0108748f497f081c7"
+  integrity sha512-uKxbd0IhMZOhjAiD5oAFp7BqvkA4Dv47qpOCtaNvng4HBwdbWtdOh8f5nZNuk2rp51PMGk3bzfWu5oayNEuYnw==
+  optionalDependencies:
+    fsevents "~2.3.2"
 
 run-async@^2.2.0, run-async@^2.4.0:
   version "2.4.1"
