@@ -199,80 +199,82 @@ export default {
     ]
   },
   router: {
-    extendRoutes(_routes, resolve) {
-      return [{
-        name: 'home',
-        path: '/',
-        component: resolve(__dirname, 'pages/Home.vue')
-      },
-      {
-        name: 'product',
-        path: '/p/:id/:slug/',
-        component: resolve(__dirname, 'pages/Product.vue')
-      },
-      {
-        name: 'category',
-        path: '/c/:slug_1/:slug_2?/:slug_3?/:slug_4?/:slug_5?',
-        component: resolve(__dirname, 'pages/Category.vue')
-      },
-      {
-        name: 'my-account',
-        path: '/my-account',
-        component: resolve(__dirname, 'pages/MyAccount.vue'),
-        children: [
-          {
-            path: 'my-profile',
-            name: 'my-profile',
-            meta: { section: 'personal-details', label: 'My Profile', ordinal: 1 },
-            component: resolve(__dirname, 'pages/MyAccount/MyProfile.vue')
-          },
-          {
-            path: 'my-addresses',
-            name: 'my-addresses',
-            meta: { section: 'personal-details', label: 'My Addresses', ordinal: 2 },
-            component: resolve(__dirname, 'pages/MyAccount/MyAddresses.vue')
-          },
-          {
-            path: 'my-consents',
-            name: 'my-consents',
-            meta: { section: 'personal-details', label: 'My Consents', ordinal: 4 },
-            component: resolve(__dirname, 'pages/MyAccount/MyConsents.vue')
-          },
-          {
-            path: 'order-history',
-            name: 'order-history',
-            meta: { section: 'order-details', label: 'Order History', ordinal: 1 },
-            component: resolve(__dirname, 'pages/MyAccount/OrderHistory.vue')
-          }
-        ]
-      },
-      {
-        name: 'checkout',
-        path: '/checkout',
-        component: resolve(__dirname, 'pages/Checkout.vue'),
-        children: [
-          {
-            path: 'email',
-            name: 'email',
-            component: resolve(__dirname, 'pages/Checkout/Email.vue')
-          },
-          {
-            path: 'shipping',
-            name: 'shipping',
-            component: resolve(__dirname, 'pages/Checkout/Shipping.vue')
-          },
-          {
-            path: 'payment',
-            name: 'payment',
-            component: resolve(__dirname, 'pages/Checkout/Payment.vue')
-          },
-          {
-            path: 'thank-you',
-            name: 'thank-you',
-            component: resolve(__dirname, 'pages/Checkout/ThankYou.vue')
-          }
-        ]
-      }];
+    extendRoutes(routes, resolve) {
+      routes.push(
+        {
+          name: 'home',
+          path: '/',
+          component: resolve(__dirname, 'pages/Home.vue')
+        },
+        {
+          name: 'product',
+          path: '/p/:id/:slug/',
+          component: resolve(__dirname, 'pages/Product.vue')
+        },
+        {
+          name: 'category',
+          path: '/c/:slug_1/:slug_2?/:slug_3?/:slug_4?/:slug_5?',
+          component: resolve(__dirname, 'pages/Category.vue')
+        },
+        {
+          name: 'my-account',
+          path: '/my-account',
+          component: resolve(__dirname, 'pages/MyAccount.vue'),
+          children: [
+            {
+              path: 'my-profile',
+              name: 'my-profile',
+              meta: { section: 'personal-details', label: 'My Profile', ordinal: 1 },
+              component: resolve(__dirname, 'pages/MyAccount/MyProfile.vue')
+            },
+            {
+              path: 'my-addresses',
+              name: 'my-addresses',
+              meta: { section: 'personal-details', label: 'My Addresses', ordinal: 2 },
+              component: resolve(__dirname, 'pages/MyAccount/MyAddresses.vue')
+            },
+            {
+              path: 'my-consents',
+              name: 'my-consents',
+              meta: { section: 'personal-details', label: 'My Consents', ordinal: 4 },
+              component: resolve(__dirname, 'pages/MyAccount/MyConsents.vue')
+            },
+            {
+              path: 'order-history',
+              name: 'order-history',
+              meta: { section: 'order-details', label: 'Order History', ordinal: 1 },
+              component: resolve(__dirname, 'pages/MyAccount/OrderHistory.vue')
+            }
+          ]
+        },
+        {
+          name: 'checkout',
+          path: '/checkout',
+          component: resolve(__dirname, 'pages/Checkout.vue'),
+          children: [
+            {
+              path: 'email',
+              name: 'email',
+              component: resolve(__dirname, 'pages/Checkout/Email.vue')
+            },
+            {
+              path: 'shipping',
+              name: 'shipping',
+              component: resolve(__dirname, 'pages/Checkout/Shipping.vue')
+            },
+            {
+              path: 'payment',
+              name: 'payment',
+              component: resolve(__dirname, 'pages/Checkout/Payment.vue')
+            },
+            {
+              path: 'thank-you',
+              name: 'thank-you',
+              component: resolve(__dirname, 'pages/Checkout/ThankYou.vue')
+            }
+          ]
+        }
+      );
     }
   },
   extend(config, ctx) {
