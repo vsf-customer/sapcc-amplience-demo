@@ -24,3 +24,9 @@ export default {
   }
 };
 </script>
+<style>
+.sf-header__logo img{
+  width: 125px;
+  height: 125px;
+}
+</style>
