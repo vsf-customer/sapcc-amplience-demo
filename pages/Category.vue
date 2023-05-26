@@ -1,5 +1,11 @@
 <template>
+
   <div id="category">
+    <div v-if="cmsLoading">Loading content...</div>
+    <!-- <div v-if="cmsError.search">Something is wrong!</div> -->
+    <div v-if="content">
+            <render-content :content="content" />
+    </div>
     <CategoryBreadcrumbs :category-breadcrumbs="categoryBreadcrumbs" />
 
     <CategoryHeader />
@@ -17,7 +23,6 @@
             name="products__slide"
             tag="div"
             class="products__grid"
-            data-testid="products-grid"
           >
             <ProductCard
               v-for="(product, i) in products"
@@ -32,7 +37,6 @@
             name="products__slide"
             tag="div"
             class="products__list"
-            data-testid="products-list"
           >
             <ProductCard
               v-for="(product, i) in products"
@@ -68,7 +72,8 @@ import CategorySidebar from '~/components/Category/CategorySidebar';
 import CategoryFooter from '~/components/Category/CategoryFooter';
 import { getCategoryBreadcrumbs } from '~/helpers/category';
 import { onSSR } from '@vue-storefront/core';
-
+import { useContent } from '@vsf-enterprise/amplience';
+import RenderContent from '../components/cms/page/RenderContent.vue';
 export default {
   transition: 'fade',
   components: {
@@ -78,7 +83,8 @@ export default {
     CategoryBreadcrumbs,
     CategoryHeader,
     CategorySidebar,
-    CategoryFooter
+    CategoryFooter,
+    RenderContent
   },
   setup(_props, context) {
     const { getSearchFromURL } = useUiHelpers();
@@ -86,7 +92,7 @@ export default {
     const { result, search, loading: productsLoading } = useProductSearch('category-search');
     const { categories, loadAll } = useCategory('category-search');
     const route = useRoute();
-
+    const { search: cmsSearch, content, loading: cmsLoading, error: cmsError } = useContent();
     const currentCategoryId = route.value.params.slug_1;
     const products = computed(() => result.value?.products);
     const isPageLoading = computed(() => productsLoading.value || !products.value);
@@ -99,8 +105,9 @@ export default {
     onMounted(async () => {
       context.root.$scrollTo(context.root.$el, 2000);
       await search(getSearchFromURL());
+      await cmsSearch({ url: currentCategoryId });
     });
-
+    console.log(currentCategoryId);
     return {
       isCategoryGridView,
       products,
@@ -108,7 +115,10 @@ export default {
       productGetters,
       result,
       productsLoading,
-      categoryBreadcrumbs
+      categoryBreadcrumbs,
+      content,
+      cmsError,
+      cmsLoading
     };
   }
 };
